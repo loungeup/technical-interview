@@ -1,0 +1,13 @@
+services:
+  nats:
+    image: nats:2.10-alpine
+    command:
+      - "--config"
+      - "/etc/nats-config/nats.conf"
+    ports:
+      - 4222:4222
+      - 8222:8222
+    volumes:
+      - ./nats.conf:/etc/nats-config/nats.conf:ro
+      - /data/jetstream/
+      - /var/run/nats/
